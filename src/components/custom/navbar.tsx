@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import ShinyText from "./shinyText";
 
 export default function Navbar() {
+  const items = [
+    { name: "Home", to: "home" },
+    { name: "About", to: "about" },
+    { name: "Experience", to: "experience" },
+    { name: "Project", to: "project" },
+    { name: "Contact", to: "contact" },
+  ];
+
   return (
-    <header className="flex h-20 w-full items-center bg-black text-white md:px-20">
+    <header className="fixed top-0 z-50 flex h-20 w-full items-center bg-black text-white md:px-20">
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="lg:hidden text-white">
@@ -14,35 +22,45 @@ export default function Navbar() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="bg-black text-white">
-          <Link to="#" className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-6">
             <MountainIcon className="h-6 w-6" />
-            <span className="text-lg font-semibold">Acme Inc</span>
-          </Link>
+            <span className="text-lg font-semibold">Ayur Mahendra</span>
+          </div>
           <nav className="flex flex-col gap-4">
-            {["Home", "About", "Services", "Contact"].map((item) => (
-              <Link key={item} to="#" className="text-lg font-semibold">
-                <ShinyText text={item} disabled={false} speed={3} />
-              </Link>
+            {items.map(({ name, to }) => (
+              <ScrollLink
+                key={to}
+                to={to}
+                smooth={true}
+                duration={500}
+                offset={-80} // Adjust if you have fixed navbar
+                className="text-lg font-semibold cursor-pointer"
+              >
+                <ShinyText text={name} disabled={false} speed={3} />
+              </ScrollLink>
             ))}
           </nav>
         </SheetContent>
       </Sheet>
 
       <div className="flex w-full justify-between items-center px-2 lg:px-4">
-        <Link to="#" className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <MountainIcon className="h-6 w-6 text-white" />
-          <span className="">Acme Inc</span>
-        </Link>
+          <span className="">Ayur Mahendra</span>
+        </div>
 
         <nav className="hidden lg:flex gap-4">
-          {["Home", "About", "Services", "Contact"].map((item) => (
-            <Link
-              key={item}
-              to="#"
-              className="text-lg font-medium px-3 py-2 hover:text-gray-300"
+          {items.map(({ name, to }) => (
+            <ScrollLink
+              key={to}
+              to={to}
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className="text-lg font-medium px-3 py-2 hover:text-gray-300 cursor-pointer"
             >
-              <ShinyText text={item} disabled={false} speed={3} />
-            </Link>
+              <ShinyText text={name} disabled={false} speed={3} />
+            </ScrollLink>
           ))}
         </nav>
       </div>
