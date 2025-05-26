@@ -3,10 +3,9 @@ import { Button } from "../ui/button";
 import ShinyText from "./shinyText";
 import { Separator } from "../ui/separator";
 
-
 const HeroSection = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center h-screen">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center h-screen max-w-7xl mx-auto gap-60 mt-16">
       <div className="col-span-1 space-y-8">
         <div>
           <ShinyText
@@ -15,13 +14,17 @@ const HeroSection = () => {
             speed={3}
             className="text-lg font-medium"
           />
-          <div className="text-2xl font-medium text-gray-300">
+          <div className="text-2xl font-medium text-neutral-300">
             {profileData.name}
           </div>
         </div>
-
-        <div className="text-6xl font-semibold text-orange-500">
-          {profileData.role}
+        <div>
+          <div className="text-6xl font-semibold text-neutral-300">
+            {profileData.role}
+          </div>
+          <div className="my-4 pl-1 text-xs font-normal md:text-sm text-neutral-200">
+            {profileData.description}
+          </div>
         </div>
         <div className="flex gap-6">
           <profileData.insta />
@@ -44,11 +47,12 @@ const HeroSection = () => {
             Download CV
           </Button>
         </div>
-        <div className="pt-8">
+        <div className="">
           <ExpCard />
         </div>
       </div>
-      <img src="./dp.jpeg" className="h-[450px] w-[450px]"/> {/* <BackgroundBeams /> */}
+      <img src="./dp.jpeg" className="h-[450px] w-[450px]" />{" "}
+      {/* <BackgroundBeams /> */}
     </div>
   );
 };

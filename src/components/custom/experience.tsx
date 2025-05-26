@@ -1,7 +1,9 @@
+import { TimelineDemo } from "./timelineComponent"
+
 const Experience = () => {
   return (
-    <div className="h-screen">
-      Experience
+    <div className="">
+      <TimelineDemo />
     </div>
   )
 }

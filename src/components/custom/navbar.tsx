@@ -6,8 +6,8 @@ import ShinyText from "./shinyText";
 export default function Navbar() {
   const items = [
     { name: "Home", to: "home" },
-    { name: "About", to: "about" },
     { name: "Experience", to: "experience" },
+    { name: "About", to: "about" },
     { name: "Project", to: "project" },
     { name: "Contact", to: "contact" },
   ];

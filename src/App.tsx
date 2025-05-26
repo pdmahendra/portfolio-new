@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="max-md:px-8 scroll-smooth">
       <section id="home"><HeroSection /></section>
-      <section id="about"><About /></section>
       <section id="experience"><Experience /></section>
+      <section id="about"><About /></section>
       <section id="project"><Project /></section>
       <section id="contact"><Contact /></section>
     </div>
